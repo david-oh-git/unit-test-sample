@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "io.osemwota.unit_test_sample"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+
+    implementation libs.app.compat
+    implementation libs.material
+    implementation libs.retrofit
+    implementation libs.retrofit.gson
+    implementation libs.ok.http
+    implementation libs.http.logging
+    implementation libs.constraintlayout
+
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    testImplementation libs.truth
+    //junit5
+    testImplementation libs.junit5.api
+    testRuntimeOnly libs.junit5.engine
+
+}
