@@ -1,3 +1,4 @@
+
 plugins {
     id 'com.android.application'
 }
@@ -25,6 +26,23 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources true
+        unitTests.returnDefaultValues = true
+//        unitTests.all {
+//            useJUnitPlatform()
+//            testLogging {
+//                events "passed", "skipped", "failed"
+//            }
+//        }
+    }
+
+
 }
 
 dependencies {
@@ -36,12 +54,17 @@ dependencies {
     implementation libs.ok.http
     implementation libs.http.logging
     implementation libs.constraintlayout
+    implementation libs.nav.fragment
+    implementation libs.nav.ui
 
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+
+    testImplementation libs.junit4
     testImplementation libs.truth
-    //junit5
-    testImplementation libs.junit5.api
-    testRuntimeOnly libs.junit5.engine
+    testImplementation libs.mock.web.server
+    testImplementation libs.androidx.test.core
+    testImplementation libs.androidx.test.rules
+    testImplementation libs.mockito
 
 }
