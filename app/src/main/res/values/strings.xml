@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">unit-test-sample</string>
+    <string name="app_name">Chuck Norris Jokes </string>
+    <string name="random_joke_btn">Random Joke</string>
+    <string name="default_remote_api_error">Something went wrong</string>
 </resources>
